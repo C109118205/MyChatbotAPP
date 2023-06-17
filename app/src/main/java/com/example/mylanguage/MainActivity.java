@@ -181,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
         RequestBody body = RequestBody.create(josnBody.toString(),JSON);
         Request request = new Request.Builder()
                 .url("https://api.openai.com/v1/completions")
-                .header("Authorization","Bearer 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")
+                .header("Authorization","Bearer you'r openai key")
                 .post(body)
                 .build();
         client.newCall(request).enqueue(new Callback() {
@@ -213,7 +213,7 @@ public class MainActivity extends AppCompatActivity {
         VoiceSelectionParams voiceSelectionParams = null;
         try {
             // 使用你的API金鑰進行身份驗證
-            GoogleCredentials credentials = GoogleCredentials.fromStream(getResources().openRawResource(R.raw.key));
+            GoogleCredentials credentials = GoogleCredentials.fromStream(getResources().openRawResource(R.raw.put_you'r_key));
             TextToSpeechSettings settings = TextToSpeechSettings.newBuilder().setCredentialsProvider(FixedCredentialsProvider.create(credentials)).build();
 
             // 建立TextToSpeechClient
@@ -254,11 +254,11 @@ public class MainActivity extends AppCompatActivity {
         SpeechClient SpeechToTextClient = null;
 
         try {
-            GoogleCredentials credentials = GoogleCredentials.fromStream(getResources().openRawResource(R.raw.key));
+            GoogleCredentials credentials = GoogleCredentials.fromStream(getResources().openRawResource(R.raw.put_you'r_key));
             SpeechSettings settings = SpeechSettings.newBuilder().setCredentialsProvider(FixedCredentialsProvider.create(credentials)).build();
             // 建立TextToSpeechClient
             SpeechToTextClient = SpeechClient.create(settings);
-            Path path = Paths.get("/storage/emulated/0/Android/data/com.example.mylanguage/cache/speech.mp3");
+            Path path = Paths.get("mp3_path");
             byte[] data = Files.readAllBytes(path);
             ByteString audioBytes = ByteString.copyFrom(data);
 
